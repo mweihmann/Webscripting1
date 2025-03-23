@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+    <input type="text" id="item">
+    <button id="add">add</button>
+    <ol></ol>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        function hideItems() {
+            $("ol").fadeOut(500);
+        }
+
+        function showItems() {
+            $("ol").show().fadeOut(0).fadeIn(500);
+        }
+
+        function addItem() {
+            e = $('#item').val();
+            $("ol").append("<li>" + e + " <button class='remove'>Remove</button>" + "<button class='up'>Up</button>" + "<button class='down'>Down</button></li>");
+            console.log("Item added");
+        }
+
+        $(document).ready(function() {
+            $("#add").on("click", addItem);
+
+            $("#show").on("click", showItems);
+            $("#hide").on("click", hideItems);
+
+            $("ol").on("click", ".remove", function() {
+                $(this).parent().fadeOut(500, function() {
+                    $(this).remove();
+                    console.log("Item removed");
+                });
+            });
+
+            $("ol").on("click", ".up", function() {
+                var listItem = $(this).parent();
+                var prevItem = listItem.prev();
+                if (prevItem.length) {
+                    listItem.slideUp(300, function() {
+                        listItem.insertBefore(prevItem).slideDown(300);
+                    });
+                }
+            });
+
+            $("ol").on("click", ".down", function() {
+                var listItem = $(this).parent();
+                var nextItem = listItem.next();
+                if (nextItem.length) {
+                    listItem.slideUp(300, function() {
+                        listItem.insertAfter(nextItem).slideDown(300);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
