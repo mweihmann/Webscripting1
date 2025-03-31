@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="controller.js" type="text/javascript"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="container">
+
+        <!--info1-->
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-9 bg-secondary">
+                <label for="searchfield" class="form-label">New User</label>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-9 bg-primary d-flex justify-content-between align-items-center p-2">
+                <input type="text" class="form-control me-2" id="id" placeholder="Id" style="width: 18%;">
+                <input type="text" class="form-control me-2" id="firstname" placeholder="Firstname" style="width: 18%;">
+                <input type="text" class="form-control me-2" id="lastname" placeholder="Lastname" style="width: 18%;">
+                <input type="text" class="form-control me-2" id="email" placeholder="E-Mail" style="width: 18%;">
+                <input type="text" class="form-control me-2" id="phone" placeholder="Phone" style="width: 18%;">
+                <input type="text" class="form-control me-2" id="department" placeholder="Department" style="width: 18%;">
+                <button type="button" class="btn btn-success" id="btn_Add" style="width: 10%; margin-right: 5px;">Add</button>
+                <button type="button" class="btn btn-warning" id="btn_Update" style="width: 10%; margin-left: 5px; margin-right: 5px;">Update</button>
+                <button type="button" class="btn btn-danger" id="btn_Delete" style="width: 10%; margin-left: 5px;">Delete</button>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+
+        <!--info2-->
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-9 bg-secondary">
+                <label for="searchfield" class="form-label">Available Names: "Doe" | "Smith"</label>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+
+        <!--Search field-->
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchfield" placeholder="Search via lastname">
+                    <button type="button" class="btn btn-success" id="btn_Search">Search</button>
+                </div>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+
+
+        <!-- message -->
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-9" id="searchResult">
+                <label for="noOfentries" class="form-label">Number of entries found:</label>
+                <input type="text" readonly class="form-control-plaintext" id="noOfentries">
+
+                <ul id="resultList" class="list-group mt-3"></ul>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+</body>
+</html>
